@@ -58,34 +58,50 @@ interface with navigation, tables, forms, and dialogs.
 ## 🗂️ Project Structure
 
 ```
-demo1/
+SmartAidDistribution/            (Phase 2 - GUI)
 ├── pom.xml
 └── src/
     └── main/
         ├── java/
-        │   └── application/
-        │       ├── Main.java                # JavaFX entry point & navigation
-        │       ├── AidManager.java          # Core logic: registration, records, reports, file I/O
-        │       ├── AidSystemDriver.java     # Legacy console entry point (kept from Phase 1)
-        │       ├── FileOperations.java      # Interface for save/load contracts
-        │       ├── Alertt.java              # Reusable alert/dialog helper
+        │   ├── aid_dashboard.png        # Dashboard image (served via pom.xml resource mapping)
+        │   └── project/
+        │       ├── Main.java            # JavaFX entry point & navigation
+        │       ├── application.css      # UI styling
         │       │
-        │       ├── Beneficiary.java / Family.java / Individual.java
-        │       ├── AidItem.java / FoodPackage.java / MedicalKit.java / EmergencyKit.java / WinterBag.java
-        │       ├── DistributionEvent.java
+        │       ├── core/
+        │       │   ├── AidManager.java          # Core logic: registration, records, reports, file I/O
+        │       │   ├── AidSystemDriver.java      # Legacy console entry point (kept from Phase 1)
+        │       │   └── FileOperations.java       # Interface for save/load contracts
         │       │
-        │       ├── DashboardView.java
-        │       ├── BeneficiariesView.java
-        │       ├── AidItemsView.java
-        │       ├── DistributionView.java
-        │       ├── ReportsView.java
-        │       ├── FilesView.java
+        │       ├── model/
+        │       │   ├── AidItem.java / FoodPackage.java / MedicalKit.java / EmergencyKit.java / WinterBag.java
+        │       │   ├── Beneficiary.java / Family.java / Individual.java
+        │       │   └── DistributionEvent.java
         │       │
-        │       └── DuplicateRegistrationException.java
+        │       ├── exceptions/
+        │       │   ├── CityNotServedException.java
+        │       │   ├── DuplicateRegistrationException.java
+        │       │   └── ItemNotFoundException.java
+        │       │
+        │       └── views/
+        │           ├── DashboardView.java
+        │           ├── BeneficiariesView.java
+        │           ├── AidItemsView.java
+        │           ├── DistributionView.java
+        │           ├── ReportsView.java
+        │           ├── FilesView.java
+        │           └── Alertt.java              # Reusable alert/dialog helper
         │
         └── resources/
-            └── application.css              # UI styling
+            └── project/
+                └── demo1/
+                    └── hello-view.fxml    # ⚠️ leftover template file — safe to delete
 ```
+
+> 🧹 **Cleanup note:** `resources/project/demo1/hello-view.fxml` is a leftover
+> file from the initial project template and isn't used anywhere in the app —
+> feel free to delete it.
+
 
 ---
 
